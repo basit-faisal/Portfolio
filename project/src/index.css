@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neutral-950 text-neutral-200;
+  }
+}
+
+::selection {
+  @apply bg-neutral-100 text-neutral-900;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
