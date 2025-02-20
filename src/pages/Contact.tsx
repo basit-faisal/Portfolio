@@ -42,7 +42,13 @@ const Contact = () => {
             </p>
             <a
               href="mailto:your.email@example.com"
-              className="inline-flex items-center space-x-2 text-lg border border-neutral-400 px-6 py-3 rounded-full hover:bg-neutral-100 hover:text-neutral-900 transition-all"
+              className="inline-flex items-center space-x-2 text-lg 
+                border border-neutral-400 px-6 py-3 rounded-full 
+                hover:border-neutral-100 hover:bg-gradient-to-r 
+                hover:from-neutral-900 hover:to-neutral-800
+                hover:text-neutral-100 hover:-translate-y-0.5 
+                transition-all duration-300 ease-out
+                hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
               <Mail size={20} />
               <span>Send me an email</span>
