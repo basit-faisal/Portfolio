@@ -44,7 +44,7 @@ const WorkHistory = () => {
     >
       <Background />
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 pb-24">
         <motion.h1
           initial={{ y: 20 }}
           animate={{ y: 0 }}
