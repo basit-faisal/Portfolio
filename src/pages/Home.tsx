@@ -19,8 +19,11 @@ const Home = () => {
           animate={{ y: 0 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
-          Data Scientist
-          <br />& Quant Developer
+          <div className="flex flex-col gap-2">
+            <span>Data Engineer</span>
+            <span className="text-neutral-400">&</span>
+            <span>Quant Developer</span>
+          </div>
         </motion.h1>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
