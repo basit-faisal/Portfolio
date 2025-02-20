@@ -20,12 +20,11 @@ const Background = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+    <div className="fixed inset-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
       <svg
         ref={svgRef}
         viewBox="0 0 800 600"
-        className="w-full h-full max-w-4xl"
-        style={{ transform: 'scale(1.2)' }}
+        className="absolute w-[200%] h-[200%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <defs>
           <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -87,7 +86,7 @@ const Background = () => {
         </pattern>
         <rect width="100%" height="100%" fill="url(#grid)" />
         
-        <g className="mathematical-curves">
+        <g className="mathematical-curves" transform="translate(100, 100) scale(0.8)">
           <path
             d="M 100 300 Q 200 100 300 300 T 500 300"
             fill="none"
