@@ -22,7 +22,7 @@ const Home = () => {
           <div className="flex flex-col gap-2">
             <span>Data Engineer</span>
             <span className="text-neutral-400">&</span>
-            <span>Quant Developer</span>
+            <span>Quant Enthusiast</span>
           </div>
         </motion.h1>
         <motion.p

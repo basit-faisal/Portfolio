@@ -4,8 +4,10 @@ import Background from '../components/Background';
 
 const About = () => {
   const skills = [
-    'React', 'TypeScript', 'Node.js', 'Tailwind CSS',
-    'UI/UX Design', 'Next.js', 'GraphQL', 'AWS'
+    ['Development', ['Fast Api', 'Pyspark', 'Airflow', 'Grafana']],
+    ['AI & ML', ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP']],
+    ['Finance', ['Quantitative Finance', 'Backtesting', 'Risk Management']],
+    ['Data', ['Engineering', 'Science', 'Analysis', 'Architecture']]
   ];
 
   return (
@@ -21,7 +23,7 @@ const About = () => {
         <motion.h1
           initial={{ y: 20 }}
           animate={{ y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-8"
+          className="text-4xl md:text-5xl font-bold mb-12"
         >
           About Me
         </motion.h1>
@@ -31,13 +33,13 @@ const About = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
+            className="space-y-6"
           >
-            <h2 className="text-2xl font-semibold mb-4">Background</h2>
-            <p className="text-neutral-400 leading-relaxed mb-6">
-              I'm a full-stack developer with a passion for creating beautiful,
-              functional, and user-friendly websites and applications. With over
-              5 years of experience in web development, I've worked with clients
-              from startups to enterprise companies.
+            <h2 className="text-2xl font-semibold">Background</h2>
+            <p className="text-neutral-400 leading-relaxed">
+              I'm a data scientist with a passion for uncovering insights through data analysis,
+              machine learning, and algorithmic trading. With a strong background in financial
+              data science, I specialize in building data-driven solutions for trading strategies.
             </p>
             <p className="text-neutral-400 leading-relaxed">
               My approach combines technical expertise with creative problem-solving,
@@ -49,15 +51,23 @@ const About = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
+            className="space-y-6"
           >
-            <h2 className="text-2xl font-semibold mb-4">Skills</h2>
-            <div className="grid grid-cols-2 gap-4">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill}
-                  className="bg-neutral-900/50 backdrop-blur-sm p-4 rounded-lg text-center"
-                >
-                  {skill}
+            <h2 className="text-2xl font-semibold">Skills</h2>
+            <div className="space-y-6">
+              {skills.map(([category, items]) => (
+                <div key={category} className="space-y-2">
+                  <h3 className="text-neutral-300 text-sm uppercase tracking-wider">{category}</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {items.map((skill) => (
+                      <div
+                        key={skill}
+                        className="bg-neutral-900/50 backdrop-blur-sm px-3 py-2 rounded text-sm"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
