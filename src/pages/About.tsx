@@ -4,10 +4,22 @@ import Background from '../components/Background';
 
 const About = () => {
   const skills = [
-    ['Development', ['Fast Api', 'Pyspark', 'Airflow', 'Grafana']],
-    ['AI & ML', ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP']],
-    ['Finance', ['Quantitative Finance', 'Backtesting', 'Risk Management']],
-    ['Data', ['Engineering', 'Science', 'Analysis', 'Architecture']]
+    {
+      category: 'Development',
+      items: ['FastAPI', 'PySpark', 'Airflow', 'Grafana/Prometheus']
+    },
+    {
+      category: 'AI & ML',
+      items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP']
+    },
+    {
+      category: 'Finance',
+      items: ['Quantitative Finance', 'Backtesting', 'Risk Management']
+    },
+    {
+      category: 'Data',
+      items: ['Engineering', 'Science', 'Analysis', 'Architecture']
+    }
   ];
 
   return (
@@ -51,21 +63,23 @@ const About = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <h2 className="text-2xl font-semibold">Skills</h2>
-            <div className="space-y-6">
-              {skills.map(([category, items]) => (
-                <div key={category} className="space-y-2">
-                  <h3 className="text-neutral-300 text-sm uppercase tracking-wider">{category}</h3>
-                  <div className="grid grid-cols-2 gap-2">
+            <div className="grid gap-6">
+              {skills.map(({ category, items }) => (
+                <div key={category}>
+                  <h3 className="text-neutral-300 text-sm uppercase tracking-wider mb-2">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
                     {items.map((skill) => (
-                      <div
+                      <span
                         key={skill}
-                        className="bg-neutral-900/50 backdrop-blur-sm px-3 py-2 rounded text-sm"
+                        className="bg-neutral-900/50 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm"
                       >
                         {skill}
-                      </div>
+                      </span>
                     ))}
                   </div>
                 </div>
