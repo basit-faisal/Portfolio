@@ -6,20 +6,33 @@ import Background from '../components/Background';
 const WorkHistory = () => {
   const experiences = [
     {
-      company: 'Company Name 1',
-      position: 'Senior Position',
-      period: '2022 - Present',
-      description: 'Description of your responsibilities and achievements.',
-      technologies: ['Tech1', 'Tech2', 'Tech3']
+      company: 'DAO PropTech',
+      position: 'Junior Data Scientist',
+      period: 'January 2025 - Current',
+      description: 'Developing a RAG chatbot using Milvus vector database and OpenAI\'s LLM, creating an agentic solution for customer engagement. Engineered Bayesian statistical models to analyze user activity and design targeted campaigns based on behavioral insights.',
+      technologies: ['Milvus', 'OpenAI', 'RAG', 'Bayesian Statistics','Grafana','Prometheus']
     },
     {
-      company: 'Company Name 2',
-      position: 'Previous Position',
-      period: '2020 - 2022',
-      description: 'Description of your responsibilities and achievements.',
-      technologies: ['Tech1', 'Tech2', 'Tech3']
+      company: 'S&P GLOBAL',
+      position: 'Data Governance Intern (Market Intelligence)',
+      period: 'June 2024 - September 2024',
+      description: 'Enhanced data integrity through Python scripts on GCP, validated datasets and improved generation efficiency for S&P index descriptions. Optimized stakeholder decision-making by designing real-time tracking dashboards and standardized index retrieval by integrating Bloomberg naming conventions.',
+      technologies: ['Python', 'GCP', 'Bloomberg', 'Data Governance','LLM (Meta NLLB)']
     },
-    // Add more work experiences as needed
+    {
+      company: 'CITI Bank',
+      position: 'Summer Data Analyst (Securities & Services Division)',
+      period: 'June 2023 - August 2023',
+      description: 'Developed investment models and improved portfolio returns. Created investment processing systems and refined datasets. Implemented accurate tracking using Excel Dashboards and automated tax reporting processes.',
+      technologies: ['Investment Modeling', 'Excel', 'Data Analysis', 'Process Automation','Dynamic Dashboards']
+    },
+    {
+      company: 'Bank of Punjab',
+      position: 'Intern (Management Information Systems)',
+      period: 'April 2023 - June 2023',
+      description: 'Led cross-functional teams to launch and market new products globally. Drove company objectives and boosted operational efficiency through SQL queries for data-driven decisions.',
+      technologies: ['SQL', 'Team Leadership', 'Product Management', 'Data Analysis']
+    }
   ];
 
   return (
