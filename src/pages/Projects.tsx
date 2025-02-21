@@ -103,7 +103,7 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-neutral-400 mb-4">{project.description}</p>
                 <a
-                  href="/contact"
+                  href="#/contact"
                   className="inline-flex items-center space-x-2 text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
                 >
                   <span>Want to know more? Contact Me!</span>

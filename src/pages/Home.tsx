@@ -42,7 +42,7 @@ const Home = () => {
             transition={{ delay: 0.4 }}
           >
             <a
-              href="/projects"
+              href="#/projects"
               className="inline-flex items-center space-x-2 text-lg 
                 border border-neutral-400 px-6 py-3 rounded-full 
                 hover:border-neutral-100 hover:bg-gradient-to-r 
