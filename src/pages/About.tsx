@@ -49,7 +49,7 @@ const About = () => {
           >
             <h2 className="text-2xl font-semibold">Background</h2>
             <p className="text-neutral-400 leading-relaxed">
-              I'm a data scientist with a passion for uncovering insights through data analysis,
+              I'm someone passionate about uncovering insights through data analysis,
               machine learning, and algorithmic trading. With a strong background in financial
               data science, I specialize in building data-driven solutions for multiple domains.
             </p>
