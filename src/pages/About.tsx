@@ -10,7 +10,7 @@ const About = () => {
     },
     {
       category: 'AI & ML',
-      items: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP']
+      items: ['Machine Learning', 'Deep Learning', 'LLMs', 'NLP']
     },
     {
       category: 'Finance',
@@ -51,7 +51,7 @@ const About = () => {
             <p className="text-neutral-400 leading-relaxed">
               I'm a data scientist with a passion for uncovering insights through data analysis,
               machine learning, and algorithmic trading. With a strong background in financial
-              data science, I specialize in building data-driven solutions for trading strategies.
+              data science, I specialize in building data-driven solutions for multiple domains.
             </p>
             <p className="text-neutral-400 leading-relaxed">
               My approach combines technical expertise with creative problem-solving,

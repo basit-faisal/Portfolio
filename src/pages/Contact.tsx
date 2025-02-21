@@ -5,9 +5,8 @@ import Background from '../components/Background';
 
 const Contact = () => {
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com' }
+    { icon: Github, label: 'GitHub', href: 'https://github.com/basit-faisal' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/basitfaisal/' }
   ];
 
   return (
@@ -41,7 +40,7 @@ const Contact = () => {
               best to get back to you!
             </p>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:basitfaisal03@gmail.com"
               className="inline-flex items-center space-x-2 text-lg 
                 border border-neutral-400 px-6 py-3 rounded-full 
                 hover:border-neutral-100 hover:bg-gradient-to-r 
