@@ -3,17 +3,33 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
   body {
-    @apply bg-neutral-950 text-neutral-200;
+    @apply bg-neutral-950 text-neutral-200 overflow-x-hidden;
+    overscroll-behavior-y: none;
   }
 }
 
-::selection {
-  @apply bg-neutral-100 text-neutral-900;
+/* Optimize animations for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .smooth-scroll {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes float {
@@ -27,4 +43,8 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+::selection {
+  @apply bg-neutral-100 text-neutral-900;
 }
