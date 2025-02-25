@@ -43,18 +43,15 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     assetsDir: 'assets',
-    publicDir: 'public',
     target: 'esnext',
     minify: 'terser',
     cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei']
+          'react-vendor': ['react', 'react-dom']
         }
       }
     }
-  },
-  publicDir: 'public'
+  }
 });
