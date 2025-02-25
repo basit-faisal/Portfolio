@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 import Background from '../components/Background';
 
 const About = () => {
@@ -14,11 +15,11 @@ const About = () => {
     },
     {
       category: 'Finance',
-      items: ['Quantitative Finance', 'Backtesting', 'Risk Management']
+      items: ['Quantitative Analysis', 'Risk Management', 'Portfolio Theory', 'Financial Modeling']
     },
     {
       category: 'Data',
-      items: ['Engineering', 'Science', 'Analysis', 'Architecture']
+      items: ['SQL', 'Data Engineering', 'Data Analysis', 'Data Visualization']
     }
   ];
 
@@ -32,22 +33,30 @@ const About = () => {
       <Background />
       
       <div className="max-w-4xl mx-auto relative z-10">
-        <motion.h1
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-12"
-        >
-          About Me
-        </motion.h1>
-        
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="space-y-12">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            <h2 className="text-2xl font-semibold">Background</h2>
+            <div className="flex justify-between items-start">
+              <h1 className="text-4xl md:text-5xl font-bold mb-8">About Me</h1>
+              <a
+                href="/Portfolio/Basit_Faisal_Resume.pdf"
+                download
+                className="inline-flex items-center space-x-2 text-lg 
+                  border border-neutral-400 px-6 py-3 rounded-full 
+                  hover:border-neutral-100 hover:bg-gradient-to-r 
+                  hover:from-neutral-900 hover:to-neutral-800
+                  hover:text-neutral-100 hover:-translate-y-0.5 
+                  transition-all duration-300 ease-out
+                  hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              >
+                <span>Download Resume</span>
+                <Download size={20} />
+              </a>
+            </div>
             <p className="text-neutral-400 leading-relaxed">
               I'm someone passionate about uncovering insights through data analysis,
               machine learning, and algorithmic trading. With a strong background in financial
@@ -66,7 +75,7 @@ const About = () => {
             className="space-y-8"
           >
             <h2 className="text-2xl font-semibold">Skills</h2>
-            <div className="grid gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skills.map(({ category, items }) => (
                 <div key={category}>
                   <h3 className="text-neutral-300 text-sm uppercase tracking-wider mb-2">

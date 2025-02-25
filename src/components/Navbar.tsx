@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
   const location = useLocation();
 
   const links = [
@@ -15,8 +17,22 @@ const Navbar = () => {
     { path: '/contact', label: 'Contact' }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingUp = prevScrollPos > currentScrollPos;
+      const isNearTop = currentScrollPos < 100;
+
+      setVisible(isScrollingUp || isNearTop);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
-    <nav className="fixed w-full z-50 px-6 py-4">
+    <nav className={`fixed w-full z-50 px-6 py-4 transition-transform duration-300 bg-neutral-950/80 backdrop-blur-sm ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">
           Basit Faisal
@@ -28,19 +44,13 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`relative ${
+              className={`${
                 location.pathname === link.path
                   ? 'text-neutral-100'
-                  : 'text-neutral-400 hover:text-neutral-100'
-              }`}
+                  : 'text-neutral-400'
+              } hover:text-neutral-100 transition-colors`}
             >
               {link.label}
-              {location.pathname === link.path && (
-                <motion.div
-                  layoutId="underline"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neutral-100"
-                />
-              )}
             </Link>
           ))}
         </div>
