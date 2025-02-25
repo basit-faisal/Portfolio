@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="fixed w-full z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">
-          Portfolio
+          Basit Faisal
         </Link>
 
         {/* Desktop Navigation */}

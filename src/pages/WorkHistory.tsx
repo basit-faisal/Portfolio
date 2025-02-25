@@ -40,7 +40,7 @@ const WorkHistory = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-24 px-6 relative overflow-hidden"
+      className="min-h-screen pt-28 md:pt-24 px-6 relative overflow-hidden"
     >
       <Background />
 
@@ -60,21 +60,29 @@ const WorkHistory = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="relative pl-8 border-l border-neutral-800"
+              className="relative pl-8 bg-neutral-900/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-800 hover:border-neutral-700 transition-colors"
             >
-              <div className="absolute -left-3 top-0">
-                <Building2 className="w-6 h-6 text-neutral-400" />
+              <div className="absolute -left-3 top-6">
+                <div className="bg-neutral-800 rounded-full p-2">
+                  <Building2 className="w-5 h-5 text-neutral-300" />
+                </div>
               </div>
-              <h2 className="text-2xl font-semibold mb-1">{experience.company}</h2>
-              <h3 className="text-lg text-neutral-400 mb-2">
-                {experience.position} • {experience.period}
-              </h3>
-              <p className="text-neutral-300 mb-4">{experience.description}</p>
+              
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div>
+                  <h2 className="text-2xl font-semibold">{experience.company}</h2>
+                  <h3 className="text-lg text-neutral-400">{experience.position}</h3>
+                </div>
+                <span className="text-sm text-neutral-500 mt-2 md:mt-0">{experience.period}</span>
+              </div>
+              
+              <p className="text-neutral-300 mb-4 leading-relaxed">{experience.description}</p>
+              
               <div className="flex flex-wrap gap-2">
                 {experience.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="bg-neutral-900/50 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm"
+                    className="bg-neutral-800/50 px-3 py-1.5 rounded-full text-sm text-neutral-300"
                   >
                     {tech}
                   </span>

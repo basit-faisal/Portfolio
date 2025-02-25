@@ -27,7 +27,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-24 px-6 relative overflow-hidden"
+      className="min-h-screen pt-28 md:pt-24 px-6 relative overflow-hidden"
     >
       <Background />
       
