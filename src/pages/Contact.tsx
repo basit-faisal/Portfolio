@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
 import Background from '../components/Background';
 import DecryptedText from '../components/DecryptedText';
 
@@ -20,6 +20,11 @@ const Contact = () => {
       icon: Linkedin, 
       label: 'LinkedIn', 
       href: 'https://www.linkedin.com/in/basitfaisal/' 
+    },
+    {
+      icon: ExternalLink,
+      label: 'Upwork',
+      href: 'https://www.upwork.com/freelancers/basitfaisal'
     }
   ];
 
