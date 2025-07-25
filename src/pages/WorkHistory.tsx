@@ -9,7 +9,7 @@ const WorkHistory = () => {
       company: 'DAO PropTech',
       position: 'Junior Data Scientist',
       period: 'January 2025 - Current',
-      description: 'Developing a RAG chatbot using Milvus vector database and OpenAI\'s LLM, creating an agentic solution for customer engagement.',
+      description: 'Developed a RAG chatbot using Milvus vector database and OpenAI\'s LLM, creating an agentic solution for customer engagement.',
       technologies: ['Milvus', 'OpenAI', 'RAG', 'Bayesian Statistics','Grafana','Prometheus']
     },
     {
