@@ -6,6 +6,13 @@ import Background from '../components/Background';
 const WorkHistory = () => {
   const experiences = [
     {
+      company: 'Motive',
+      position: 'Data Quality Specialist',
+      period: 'June 2025 - Current',
+      description: 'Driving end-to-end data automation and pipeline initiatives to unlock sales opportunities, streamline large-scale data processing, and build intelligent systems that turn raw data into actionable insights.',
+      technologies: ['Data Automation', 'ETL Pipelines', 'Data Processing', 'Snowflake', 'Salesforce','Airflow','Python','SQL','LLMs','Statistical Analysis']
+    },
+    {
       company: 'DAO PropTech',
       position: 'Junior Data Scientist',
       period: 'January 2025 - Current',
