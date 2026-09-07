@@ -10,12 +10,18 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      // Workbox minifies the generated service worker with terser, which
+      // deadlocks on Node 25. Skipping it keeps builds from hanging.
+      workbox: { mode: 'development' },
       manifest: {
-        name: "Basit's Portfolio",
-        short_name: 'Portfolio',
-        description: 'Portfolio website showcasing my work and skills',
-        theme_color: '#000000',
-        background_color: '#000000',
+        name: 'Basit Faisal - Portfolio',
+        short_name: 'Basit Faisal',
+        description:
+          'Portfolio of Basit Faisal, Data Analytics Engineer, presented as a 90s desktop.',
+        // Teal matches the desktop chrome; the dark background matches the 3D
+        // room the app opens on, so the splash does not flash a wrong colour.
+        theme_color: '#008080',
+        background_color: '#0b0b11',
         display: 'standalone',
         icons: [
           {
@@ -27,6 +33,12 @@ export default defineConfig({
             src: 'pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512-maskable.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           }
         ]
       }
@@ -44,7 +56,7 @@ export default defineConfig({
     sourcemap: true,
     assetsDir: 'assets',
     target: 'esnext',
-    minify: 'terser',
+    minify: 'esbuild',
     cssMinify: true,
     rollupOptions: {
       output: {
