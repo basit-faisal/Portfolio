@@ -8,6 +8,7 @@ import { ContactShadows, PerformanceMonitor } from '@react-three/drei';
 import { Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
 import Computer from './Computer';
+import Desk from './Desk';
 import CameraRig, { type CameraPhase } from './CameraRig';
 import { CAMERA_FOV, IDLE_CAMERA } from './sceneConstants';
 import { BOOT_DURATION } from './bootScreen';
@@ -74,19 +75,19 @@ const CRTStage = ({
           interactive={phase === 'idle'}
         />
 
-        {/* Desk surface, kept plain so the beige case stays the focus. */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.002, 0]} receiveShadow>
-          <planeGeometry args={[40, 40]} />
-          <meshStandardMaterial color="#241c16" roughness={0.9} metalness={0} />
-        </mesh>
+        {/* The desk it all stands on, and the working clutter around it. */}
+        <Desk />
 
+        {/* Tightened onto the desk since the clutter arrived: the props are a
+            tenth the size of the machine and were landing on two or three
+            pixels of shadow map each. */}
         <ContactShadows
           position={[0, 0.001, 0]}
           opacity={0.55}
-          scale={6}
+          scale={4.2}
           blur={2.4}
           far={2}
-          resolution={512}
+          resolution={1024}
         />
       </Suspense>
 

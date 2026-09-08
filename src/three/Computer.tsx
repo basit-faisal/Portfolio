@@ -23,6 +23,7 @@ import {
   SCREEN_MATERIALS,
   SCREEN_REFRESH_HZ
 } from './sceneConstants';
+import { BEZEL_FRONT, BEZEL_NOTES } from './deskLayout';
 import { createScreenCanvas, drawScreenFrame, hitTestScreen } from './bootScreen';
 import { createCurvedScreenGeometry } from './screenGeometry';
 
@@ -137,6 +138,22 @@ const Computer = ({ bootStart, onActivate, interactive }: ComputerProps) => {
             and reads as an emitter for the bloom pass. */}
         <meshBasicMaterial map={texture} toneMapped={false} />
       </mesh>
+
+      {/* Sticky notes on the bezel. Same tilted frame as the glass, so they
+          lie on the case rather than hovering in front of it. */}
+      <group position={SCREEN_CENTER} rotation={[SCREEN_TILT, 0, 0]}>
+        {BEZEL_NOTES.map((note, index) => (
+          <mesh
+            key={index}
+            position={[note.offset[0], note.offset[1], BEZEL_FRONT + 0.0025]}
+            rotation={[0, 0, note.roll]}
+            castShadow
+          >
+            <boxGeometry args={[note.size, note.size, 0.005]} />
+            <meshStandardMaterial color={note.colour} roughness={0.95} flatShading />
+          </mesh>
+        ))}
+      </group>
 
       {/* Spill from the screen onto the beige case. */}
       <pointLight

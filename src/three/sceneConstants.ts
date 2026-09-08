@@ -62,9 +62,17 @@ export const SCREEN_MATERIALS = ['M_screen_brightblue', 'M_screen_whitetext'];
  */
 export const SCREEN_REFRESH_HZ = 20;
 
-/** Resting camera: a three-quarter view of the whole desk. */
-export const IDLE_CAMERA: [number, number, number] = [0.9, 1.15, 2.4];
-export const IDLE_TARGET: [number, number, number] = [0, 0.62, 0.1];
+/**
+ * Resting camera: a three-quarter view of the whole desk.
+ *
+ * Sat further back and a little higher than the bare model needed. At the
+ * previous distance the desk surface left the bottom of a 16:9 frame at
+ * z = 0.58, which cropped the mouse and everything else in front of the
+ * keyboard — fine when the desk was an empty plane, not once there is clutter
+ * on it worth seeing.
+ */
+export const IDLE_CAMERA: [number, number, number] = [1.0, 1.26, 2.82];
+export const IDLE_TARGET: [number, number, number] = [0, 0.56, 0.14];
 
 export const CAMERA_FOV = 35;
 
