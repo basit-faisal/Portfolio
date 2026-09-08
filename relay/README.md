@@ -19,7 +19,22 @@ A new **private** repo, e.g. `basit-faisal/portfolio-inbox`. Private matters:
 issues in a public repo are world-readable and search-indexed, which would
 publish the sender's email address.
 
-Make sure you are *Watching* it (All Activity) so new issues email you.
+Set the repo's **Watch** dropdown to *All Activity*.
+
+Watching alone is not enough. The relay authenticates with **your** token, so
+every issue it files is authored by you, and GitHub does not email you about
+your own actions by default. Without the setting below the pipeline looks
+healthy — issues appear, the worker returns 200, the composer reports success —
+while nothing ever reaches your inbox.
+
+> **Settings → Notifications → Customize email updates → Include your own
+> updates**, then Save.
+
+That setting is global: you will also start getting mail for issues and PRs you
+touch in every other repo, including work ones. A filter on
+`from:notifications@github.com` plus this repo's name keeps it manageable. If
+that trade is not worth it, swap the GitHub API call in `worker.js` for a direct
+send through an email API instead.
 
 ### 2. Create a token
 
@@ -32,14 +47,20 @@ Scoped this way, a leaked token can only open issues in an empty private repo.
 
 ### 3. Deploy
 
+Needs a Cloudflare account; the free plan is enough. Check `wrangler.toml`
+first: `GITHUB_REPO` must match the inbox repo, and `ALLOWED_ORIGINS` must list
+every origin that will POST here. Add `http://localhost:3000` (the dev server's
+port) while developing.
+
 ```sh
 cd relay
+npx wrangler login
+npx wrangler deploy                    # creates the worker, prints its URL
 npx wrangler secret put GITHUB_TOKEN   # paste the token
-npx wrangler deploy
 ```
 
-Edit `wrangler.toml` first if your repo name or origins differ. Add
-`http://localhost:5173` to `ALLOWED_ORIGINS` while developing.
+Deploy before setting the secret, so the worker exists to attach it to. Secrets
+apply immediately — no redeploy needed.
 
 ### 4. Point the site at it
 
