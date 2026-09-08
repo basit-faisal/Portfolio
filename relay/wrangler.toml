@@ -5,7 +5,7 @@ compatibility_date = "2026-01-01"
 [vars]
 # Private repo that acts as the inbox. Messages become issues here.
 GITHUB_REPO = "basit-faisal/portfolio-inbox"
-# Only these origins may POST. Add http://localhost:5173 while developing.
+# Only these origins may POST. Add http://localhost:3000 while developing.
 ALLOWED_ORIGINS = "https://basit-faisal.github.io"
 
 # GITHUB_TOKEN is a secret, not a var:
