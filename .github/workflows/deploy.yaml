@@ -27,7 +27,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          # 20+ required: the PWA plugin's terser step pulls in
+          # serialize-javascript, which reads the global `crypto` that Node only
+          # exposes unflagged from v19. Node 18 fails the build after bundling.
+          node-version: 24
           cache: 'npm'
       
       - name: Install dependencies
